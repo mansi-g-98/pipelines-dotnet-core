@@ -6,7 +6,7 @@ dotnet = 'path\\to\\dotnet.exe'
 stages {
 stage ('Checkout') {
             steps {
-                 git url: 'https://github.com/mansi-g-98/pipelines-dotnet-core',branch: 'master'
+                 git url: 'https://github.com/arjunachari12/pipelines-dotnet-core',branch: 'master'
             }
 }
 stage ('Restore PACKAGES') {     
@@ -14,6 +14,7 @@ stage ('Restore PACKAGES') {
              bat "dotnet restore"
           }
         }
+
 stage('Build') {
      steps {
             bat 'dotnet build --configuration Release'
@@ -21,8 +22,11 @@ stage('Build') {
    }
    stage('Publish') {
      steps {
-           bat 'dotnet publish  --configuration Release'
+           bat 'dotnet publish pipelines-dotnet-core.csproj -c Release'
       }
    }
+
+   
+
  }
 }
