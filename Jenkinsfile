@@ -29,7 +29,7 @@ stage('Build') {
             stage('deploy') {
         steps {
         azureWebAppPublish azureCredentialsId: params.azure_cred_id,
-            resourceGroup: "myResourceGroup", appName: "jenkinssamplemag", sourceDirectory: "bin/Release/netcoreapp2.2/publish/"
+            resourceGroup: "myResourceGroup", appName: "jenkinssamplemag20", sourceDirectory: "bin/Release/netcoreapp2.2/publish/"
         }
     }
 
