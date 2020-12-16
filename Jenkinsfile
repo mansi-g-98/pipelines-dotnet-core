@@ -25,6 +25,13 @@ stage('Build') {
            bat 'dotnet publish pipelines-dotnet-core.csproj -c Release'
       }
    }
+            
+            stage('deploy') {
+        steps {
+        azureWebAppPublish azureCredentialsId: params.azure_cred_id,
+            resourceGroup: "myResourceGroup", appName: "jenkinssamplemag", sourceDirectory: "bin/Release/netcoreapp2.2/publish/"
+        }
+    }
 
   
 
